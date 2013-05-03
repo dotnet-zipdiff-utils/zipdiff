@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C0A8BDDE-A89F-4341-8912-A7C05E5CC25F}"
+	ProjectSection(SolutionItems) = preProject
+		..\LICENSE.md = ..\LICENSE.md
+		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{8385D108-CB2D-4DFE-A503-D49CCA8C1D90}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZipDiff", "ZipDiff\ZipDiff.csproj", "{29EAA71F-BFB8-44FF-BDD7-08FD98265FFE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{29EAA71F-BFB8-44FF-BDD7-08FD98265FFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29EAA71F-BFB8-44FF-BDD7-08FD98265FFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29EAA71F-BFB8-44FF-BDD7-08FD98265FFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29EAA71F-BFB8-44FF-BDD7-08FD98265FFE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8385D108-CB2D-4DFE-A503-D49CCA8C1D90} = {C0A8BDDE-A89F-4341-8912-A7C05E5CC25F}
+	EndGlobalSection
+EndGlobal
