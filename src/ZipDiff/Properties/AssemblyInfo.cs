@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Umbrella Inc Ltd")]
 [assembly: AssemblyProduct("ZipDiff")]
-[assembly: AssemblyCopyright("Copyright \x9a Lee Kelleher 2013")]
+[assembly: AssemblyCopyright("Copyright \xa9 Lee Kelleher 2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
