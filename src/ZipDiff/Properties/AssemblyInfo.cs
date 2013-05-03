@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 [assembly: AssemblyTitle("ZipDiff")]
-[assembly: AssemblyDescription("Utilities for comparing the contents of 2 different zip files.")]
+[assembly: AssemblyDescription("Utility for comparing the contents of 2 different zip files")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Umbrella Inc Ltd")]
 [assembly: AssemblyProduct("ZipDiff")]
