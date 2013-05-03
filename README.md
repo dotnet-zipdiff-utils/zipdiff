@@ -2,7 +2,7 @@
 
 Use the ZipDiff tool when you need to compare the contents of two zip files.
 
-Run it standalone or as an MSBuild task. The tool supports four output formats: plain text, XML, HTML and ZIP (containing differences).
+Run it as a standalone executable. The tool supports four output formats: plain text, XML, HTML and ZIP (containing differences).
 
 This version of ZipDiff has been ported from Java to C# (.NET)
 
