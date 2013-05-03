@@ -20,7 +20,7 @@ namespace ZipDiff
 			var options = new Options();
 			if (!CommandLine.Parser.Default.ParseArguments(args, options))
 			{
-				Console.WriteLine("no args");
+				Console.WriteLine("No zip files have been specified.");
 				Environment.Exit(EXITCODE_ERROR);
 			}
 

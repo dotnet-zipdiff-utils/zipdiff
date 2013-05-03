@@ -5,7 +5,7 @@ using ICSharpCode.SharpZipLib.Zip;
 
 namespace ZipDiff
 {
-	class Differences
+	public class Differences
 	{
 		public string File1 { get; set; }
 		public string File2 { get; set; }

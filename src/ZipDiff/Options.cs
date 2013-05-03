@@ -3,7 +3,7 @@ using CommandLine;
 
 namespace ZipDiff
 {
-	class Options
+	public class Options
 	{
 		[Option('c', "comparecrcvalues", Required = false, HelpText = "Compare CRC values")]
 		public bool CompareCrcValues { get; set; }
@@ -28,14 +28,5 @@ namespace ZipDiff
 
 		[Option('v', "verbose", Required = false, HelpText = "Verbose mode")]
 		public bool Verbose { get; set; }
-
-		[HelpOption]
-		public string GetUsage()
-		{
-			var usage = new StringBuilder();
-			usage.AppendLine("ZipDiff 1.0");
-			usage.AppendLine("Read user manual for usage instructions...");
-			return usage.ToString();
-		}
 	}
 }
