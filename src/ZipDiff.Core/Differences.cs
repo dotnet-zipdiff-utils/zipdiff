@@ -3,7 +3,7 @@ using System.Linq;
 using System.Text;
 using ICSharpCode.SharpZipLib.Zip;
 
-namespace ZipDiff
+namespace ZipDiff.Core
 {
 	public class Differences
 	{

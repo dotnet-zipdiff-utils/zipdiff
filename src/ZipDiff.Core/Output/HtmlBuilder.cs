@@ -2,7 +2,7 @@
 using System.IO;
 using System.Linq;
 
-namespace ZipDiff.Output
+namespace ZipDiff.Core.Output
 {
 	class HtmlBuilder : AbstractBuilder
 	{

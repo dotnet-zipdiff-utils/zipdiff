@@ -3,9 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C0A8BDDE-A89F-4341-8912-A7C05E5CC25F}"
 	ProjectSection(SolutionItems) = preProject
-		..\build.cmd = ..\build.cmd
 		..\LICENSE.md = ..\LICENSE.md
+		..\rakefile.rb = ..\rakefile.rb
 		..\README.md = ..\README.md
+		..\VERSION = ..\VERSION
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{8385D108-CB2D-4DFE-A503-D49CCA8C1D90}"
@@ -17,6 +18,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{8385D1
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZipDiff", "ZipDiff\ZipDiff.csproj", "{29EAA71F-BFB8-44FF-BDD7-08FD98265FFE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZipDiff.Core", "ZipDiff.Core\ZipDiff.Core.csproj", "{D1A1463E-7C8A-4462-BE5C-C5385B7E8C93}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +30,10 @@ Global
 		{29EAA71F-BFB8-44FF-BDD7-08FD98265FFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29EAA71F-BFB8-44FF-BDD7-08FD98265FFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29EAA71F-BFB8-44FF-BDD7-08FD98265FFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1A1463E-7C8A-4462-BE5C-C5385B7E8C93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1A1463E-7C8A-4462-BE5C-C5385B7E8C93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1A1463E-7C8A-4462-BE5C-C5385B7E8C93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1A1463E-7C8A-4462-BE5C-C5385B7E8C93}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

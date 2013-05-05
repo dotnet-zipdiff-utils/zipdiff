@@ -6,7 +6,8 @@ using System.Security.AccessControl;
 using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
-using ZipDiff.Output;
+using ZipDiff.Core;
+using ZipDiff.Core.Output;
 
 namespace ZipDiff
 {
@@ -34,7 +35,12 @@ namespace ZipDiff
 			Console.WriteLine("File 2 = {0}", file2.Name);
 			Console.WriteLine();
 
-			var calc = new DifferenceCalculator(file1, file2) { Options = options };
+			var calc = new DifferenceCalculator(file1, file2)
+			{
+				CompareCrcValues = options.CompareCrcValues,
+				CompareTimestamps = options.CompareTimestamps,
+				RegExPattern = options.RegExPattern
+			};
 			var diff = calc.GetDifferences();
 
 			if (!string.IsNullOrWhiteSpace(options.OutputFile))

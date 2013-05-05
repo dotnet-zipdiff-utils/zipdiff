@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ICSharpCode.SharpZipLib.Zip;
 
-namespace ZipDiff.Output
+namespace ZipDiff.Core.Output
 {
 	class ZipBuilder : AbstractBuilder
 	{

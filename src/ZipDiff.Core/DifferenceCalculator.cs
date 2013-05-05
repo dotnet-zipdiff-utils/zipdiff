@@ -5,14 +5,16 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using ICSharpCode.SharpZipLib.Zip;
 
-namespace ZipDiff
+namespace ZipDiff.Core
 {
 	public class DifferenceCalculator
 	{
-		ZipFile zip1;
-		ZipFile zip2;
+		private ZipFile zip1;
+		private ZipFile zip2;
 
-		public Options Options { get; set; }
+		public bool CompareCrcValues { get; set; }
+		public bool CompareTimestamps { get; set; }
+		public string RegExPattern { get; set; }
 
 		public DifferenceCalculator(string file1, string file2)
 			: this(new FileInfo(file1), new FileInfo(file2))
@@ -87,10 +89,10 @@ namespace ZipDiff
 					match = match && entry1.CompressedSize == entry2.CompressedSize;
 					match = match && entry1.Name == entry2.Name;
 
-					if (Options.CompareTimestamps)
+					if (CompareTimestamps)
 						match = match && entry1.DateTime == entry2.DateTime;
 
-					if (Options.CompareCrcValues && (entry1.HasCrc && entry2.HasCrc))
+					if (CompareCrcValues && (entry1.HasCrc && entry2.HasCrc))
 						match = match && entry1.Crc == entry2.Crc;
 
 					if (!match)
@@ -111,10 +113,10 @@ namespace ZipDiff
 			if (string.IsNullOrWhiteSpace(entryName))
 				return false;
 
-			if (string.IsNullOrWhiteSpace(Options.RegExPattern))
+			if (string.IsNullOrWhiteSpace(RegExPattern))
 				return false;
 
-			var match = Regex.Match(entryName, Options.RegExPattern, RegexOptions.IgnoreCase);
+			var match = Regex.Match(entryName, RegExPattern, RegexOptions.IgnoreCase);
 			if (match.Success)
 				Console.WriteLine("Found a match against : {0} so excluding.", entryName);
 

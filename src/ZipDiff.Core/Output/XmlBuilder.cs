@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace ZipDiff.Output
+namespace ZipDiff.Core.Output
 {
 	class XmlBuilder : AbstractBuilder
 	{
