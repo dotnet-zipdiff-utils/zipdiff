@@ -12,7 +12,7 @@ end
 assemblyinfo :assemblyinfo do |asm|
   asm.version = bumper_version.to_s
   asm.file_version = bumper_version.to_s
-  asm.output_file = 'src/SolutionInfo.cs'
+  asm.output_file = 'src/VersionInfo.cs'
 end
 
 output :output do |out|

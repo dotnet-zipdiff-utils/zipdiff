@@ -6,5 +6,3 @@ using System.Reflection;
 [assembly: AssemblyCopyright("Copyright \xa9 Lee Kelleher 2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
-
-[assembly: AssemblyVersion("1.0.*")]
