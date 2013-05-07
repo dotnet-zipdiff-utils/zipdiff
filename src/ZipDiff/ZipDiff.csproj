@@ -76,6 +76,7 @@
     <ItemGroup>
       <InputAssemblies Include="$(OutputPath)\$(AssemblyName).exe" />
       <InputAssemblies Include="$(OutputPath)\CommandLine.dll" />
+      <InputAssemblies Include="$(OutputPath)\ICSharpCode.SharpZipLib.dll" />
       <InputAssemblies Include="$(OutputPath)\ZipDiff.Core.dll" />
     </ItemGroup>
     <ILRepack Parallel="true" Internalize="true" InputAssemblies="@(InputAssemblies)" TargetKind="Exe" OutputFile="$(OutputPath)\$(AssemblyName).exe" />
