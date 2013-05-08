@@ -13,7 +13,9 @@ namespace ZipDiff.Core
 		private ZipFile zip2;
 
 		public bool CompareCrcValues { get; set; }
+
 		public bool CompareTimestamps { get; set; }
+
 		public string RegExPattern { get; set; }
 
 		public DifferenceCalculator(string file1, string file2)
@@ -44,7 +46,7 @@ namespace ZipDiff.Core
 					map.Add(entry.Name, entry);
 			}
 
-			zip1.Close();
+			zip.Close();
 
 			return map;
 		}
@@ -84,10 +86,10 @@ namespace ZipDiff.Core
 					var entry1 = map1[name];
 					var entry2 = map2[name];
 
-					var match = entry1.IsDirectory == entry2.IsDirectory;
-					match = match && entry1.Size == entry2.Size;
-					match = match && entry1.CompressedSize == entry2.CompressedSize;
-					match = match && entry1.Name == entry2.Name;
+					var match = entry1.IsDirectory == entry2.IsDirectory
+						&& entry1.Size == entry2.Size
+						&& entry1.CompressedSize == entry2.CompressedSize
+						&& entry1.Name == entry2.Name;
 
 					if (CompareTimestamps)
 						match = match && entry1.DateTime == entry2.DateTime;
@@ -97,6 +99,8 @@ namespace ZipDiff.Core
 
 					if (!match)
 						diff.Changed.Add(name, new[] { entry1, entry2 });
+					else
+						diff.Unchanged.Add(name, map2[name]);
 				}
 			}
 

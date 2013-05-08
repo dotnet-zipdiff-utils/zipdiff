@@ -8,12 +8,18 @@ namespace ZipDiff.Core
 	public class Differences
 	{
 		public string File1 { get; set; }
+
 		public string File2 { get; set; }
 
 		public Dictionary<string, ZipEntry> Added { get; set; }
+
 		public Dictionary<string, ZipEntry[]> Changed { get; set; }
+
 		public Dictionary<string, ZipEntry> Ignored { get; set; }
+
 		public Dictionary<string, ZipEntry> Removed { get; set; }
+
+		internal Dictionary<string, ZipEntry> Unchanged { get; set; }
 
 		public Differences(string file1, string file2)
 		{
@@ -24,6 +30,7 @@ namespace ZipDiff.Core
 			Changed = new Dictionary<string, ZipEntry[]>();
 			Ignored = new Dictionary<string, ZipEntry>();
 			Removed = new Dictionary<string, ZipEntry>();
+			Unchanged = new Dictionary<string, ZipEntry>();
 		}
 
 		public bool HasDifferences()
@@ -33,51 +40,40 @@ namespace ZipDiff.Core
 
 		public override string ToString()
 		{
-			var sb = new StringBuilder();
+			var logg = new StringBuilder();
 
-			if (Added.Count == 1)
-			{
-				sb.Append("1 file was");
-			}
-			else
-			{
-				sb.Append(Added.Count).Append(" files were");
-			}
+			logg.Append(Added.Count)
+				.Append(Added.Count == 1 ? " file was" : " files were")
+				.Append(" added to ")
+				.Append(File2)
+				.AppendLine()
+				.Append("\t[added] ")
+				.Append(string.Join("\r\n\t[added] ", Added.Keys))
+				.AppendLine();
 
-			sb.Append(" added to ").Append(File2).AppendLine();
-			sb.Append("\t[added] ").Append(string.Join("\r\n\t[added] ", Added.Keys)).AppendLine();
+			logg.Append(Removed.Count)
+				.Append(Removed.Count == 1 ? " file was" : " files were")
+				.Append(" removed from ")
+				.Append(File2)
+				.AppendLine()
+				.Append("\t[removed] ")
+				.Append(string.Join("\r\n\t[removed] ", Removed.Keys))
+				.AppendLine();
 
-			if (Removed.Count == 1)
-			{
-				sb.Append("1 file was");
-			}
-			else
-			{
-				sb.Append(Removed.Count).Append(" files were");
-			}
-
-			sb.Append(" removed from ").Append(File2).AppendLine();
-			sb.Append("\t[removed] ").Append(string.Join("\r\n\t[removed] ", Removed.Keys)).AppendLine();
-
-			if (Changed.Count == 1)
-			{
-				sb.Append("1 file changed\n");
-			}
-			else
-			{
-				sb.Append(Changed.Count).Append(" files changed").AppendLine();
-			}
+			logg.Append(Changed.Count)
+				.Append(Changed.Count == 1 ? " file changed" : " files changed")
+				.AppendLine();
 
 			foreach (var changed in Changed.Where(x => x.Value.Length > 1))
 			{
-				sb.AppendFormat("\t[changed] {0} (size {1} : {2})", changed.Key, changed.Value[0].Size, changed.Value[1].Size).AppendLine();
+				logg.AppendFormat("\t[changed] {0} (size {1} : {2})", changed.Key, changed.Value[0].Size, changed.Value[1].Size)
+					.AppendLine();
 			}
 
 			var differenceCount = Added.Count + Changed.Count + Removed.Count;
+			logg.AppendFormat("Total differences: {0}", differenceCount);
 
-			sb.Append("Total differences: ").Append(differenceCount);
-
-			return sb.ToString();
+			return logg.ToString();
 		}
 	}
 }
