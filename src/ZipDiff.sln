@@ -20,6 +20,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZipDiff", "ZipDiff\ZipDiff.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZipDiff.Core", "ZipDiff.Core\ZipDiff.Core.csproj", "{D1A1463E-7C8A-4462-BE5C-C5385B7E8C93}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{03521620-C563-4204-93DD-AED399DD05B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZipDiff.Core.UnitTests", "tests\ZipDiff.Core.UnitTests\ZipDiff.Core.UnitTests.csproj", "{9A50E080-F9EB-47E9-993B-408F711F14EF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,11 +38,17 @@ Global
 		{D1A1463E-7C8A-4462-BE5C-C5385B7E8C93}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1A1463E-7C8A-4462-BE5C-C5385B7E8C93}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1A1463E-7C8A-4462-BE5C-C5385B7E8C93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A50E080-F9EB-47E9-993B-408F711F14EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A50E080-F9EB-47E9-993B-408F711F14EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A50E080-F9EB-47E9-993B-408F711F14EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A50E080-F9EB-47E9-993B-408F711F14EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{8385D108-CB2D-4DFE-A503-D49CCA8C1D90} = {C0A8BDDE-A89F-4341-8912-A7C05E5CC25F}
+		{03521620-C563-4204-93DD-AED399DD05B4} = {C0A8BDDE-A89F-4341-8912-A7C05E5CC25F}
+		{9A50E080-F9EB-47E9-993B-408F711F14EF} = {03521620-C563-4204-93DD-AED399DD05B4}
 	EndGlobalSection
 EndGlobal

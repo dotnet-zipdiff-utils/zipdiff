@@ -9,3 +9,4 @@ using System.Runtime.InteropServices;
 [assembly: Guid("85E5F9BF-4637-412E-AF34-184C46D4F06D")]
 
 [assembly: InternalsVisibleTo("ZipDiff")]
+[assembly: InternalsVisibleTo("ZipDiff.Core.UnitTests")]
