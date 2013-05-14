@@ -6,7 +6,7 @@ Run it as a standalone executable. The tool supports four output formats: plain 
 
 This version of ZipDiff has been ported from Java to C# (.NET)
 
-### Command line arguments
+## Command line arguments
 
 	zipdiff.exe --file1 foo.zip --file2 bar.zip [--options]
 
@@ -19,12 +19,17 @@ Valid options are:
 	--regex                Regular expression to match files to exclude
 	--verbose              Print detail messages
 
-### References
+## References
 This version can be found at https://github.com/leekelleher/ZipDiff.NET
 
 The original zipdiff project was developed by Sean C. Sullivan and James Stewart at http://zipdiff.sourceforge.net/
 A recent fork can also be found on GitHub: https://github.com/nhnb/zipdiff
 
-### License
+## License
+Copyright &copy; 2004 Sean C. Sullivan and James Stewart<br/>
+Copyright &copy; 2009 Hendrik Brummermann<br/>
+Copyright &copy; 2013 Lee Kelleher<br/>
+
 This project is licensed under [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
-Please see LICENSE.md and NOTICE.txt for further details.
+
+Please see [LICENSE](LICENSE.txt) and [NOTICE](NOTICE.txt) for further details.
