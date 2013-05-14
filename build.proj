@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="CopyFiles" ToolsVersion="4.0">
+
+	<!-- PATHS -->
+	<PropertyGroup>
+		<RootDir>$(MSBuildProjectDirectory)</RootDir>
+		<BuildDir>$(RootDir)\build</BuildDir>
+		<MSBuildCommunityTasksPath>$(RootDir)\src\packages\MSBuildTasks.1.4.0.56\tools\</MSBuildCommunityTasksPath>
+	</PropertyGroup>
+
+	<!-- IMPORTS -->
+	<Import Project="$(MSBuildCommunityTasksPath)\MSBuild.Community.Tasks.Targets" />
+
+	<!-- VERSION NUMBER -->
+	<PropertyGroup>
+		<VersionMajor>0</VersionMajor>
+		<VersionMinor>2</VersionMinor>
+		<VersionPatch>0</VersionPatch>
+		<VersionSuffix>-beta</VersionSuffix>
+	</PropertyGroup>
+
+	<!-- CLEAN -->
+	<Target Name="Clean">
+		<RemoveDir Directories="$(BuildDir)" Condition="Exists('$(BuildDir)')" />
+		<MakeDir Directories="$(BuildDir)" />
+	</Target>
+
+	<!-- UPDATE ASSEMBLEY VERSION -->
+	<Target Name="UpdateAssemblyInfo" DependsOnTargets="Clean">
+		<Version Major="$(VersionMajor)" Minor="$(VersionMinor)" BuildType="Automatic" RevisionType="Automatic" StartDate="2013-05-03">
+			<Output TaskParameter="Build" PropertyName="Build" />
+			<Output TaskParameter="Revision" PropertyName="Revision" />
+		</Version>
+		<AssemblyInfo CodeLanguage="CS"
+			OutputFile="$(RootDir)\src\VersionInfo.cs"
+			AssemblyVersion="$(VersionMajor).$(VersionMinor).$(VersionPatch)"
+			AssemblyFileVersion="$(VersionMajor).$(VersionMinor).$(Build).$(Revision)"
+			AssemblyInformationalVersion="$(VersionMajor).$(VersionMinor).$(VersionPatch)$(VersionSuffix)"/>
+	</Target>
+
+	<!-- COMPILE -->
+	<Target Name="Compile" DependsOnTargets="UpdateAssemblyInfo">
+		<MSBuild Projects="$(RootDir)\src\ZipDiff.sln" Properties="Configuration=Release" />
+	</Target>
+
+	<!-- COMPILE -->
+	<Target Name="NuGet" DependsOnTargets="Compile">
+		<Exec WorkingDirectory="$(RootDir)" Command="$(RootDir)\src\.nuget\NuGet.exe pack $(RootDir)\src\ZipDiff\ZipDiff.csproj -Properties Configuration=Release -OutputDirectory build -Tool" />
+		<Exec WorkingDirectory="$(RootDir)" Command="$(RootDir)\src\.nuget\NuGet.exe pack $(RootDir)\src\ZipDiff.Core\ZipDiff.Core.csproj -Properties Configuration=Release -OutputDirectory build" />
+	</Target>
+
+	<!-- COPY FILES -->
+	<Target Name="CopyFiles" DependsOnTargets="NuGet">
+		<ItemGroup>
+			<ExecFiles Include="$(RootDir)\src\ZipDiff\bin\Release\zipdiff.exe" />
+		</ItemGroup>
+		<Copy SourceFiles="@(ExecFiles)" DestinationFolder="$(BuildDir)" />
+	</Target>
+
+</Project>
