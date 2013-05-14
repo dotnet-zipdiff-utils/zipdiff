@@ -33,6 +33,21 @@ Valid options are:
 	--regex                       Regular expression to match files to exclude
 	--verbose                     Print detail messages
 
+## Output formats
+
+When using the `--outputfile` option, the following formats are available:
+
+* Plain-Text
+* HTML
+* XML
+* Zip (containing the differences between `--file1` and `--file2`)
+
+For example, to output a zip file:
+
+	zipdiff.exe --file1 foo.zip --file2 bar.zip --outputfile diff.zip
+
+If the output file extension can not be determined, then the format will default to a plain-text file.
+
 ## References
 This version can be found at https://github.com/leekelleher/ZipDiff.NET
 
