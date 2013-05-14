@@ -10,7 +10,7 @@ This version of ZipDiff has been ported from Java to C# (.NET)
 
 To get a copy of Zipdiff you have the following options:
 
-* Download the source and run the `build.cmd` (which runs an MSBuild against `build.prog`)
+* Download the source and run the `build.cmd` (which runs an MSBuild against `build.proj`)
 * Install using NuGet. Your options are:
   * [ZipDiff](https://nuget.org/packages/ZipDiff/) - the command-line utility
   * [ZipDiff.Core](https://nuget.org/packages/ZipDiff.Core/) - the class-library (to use in your own applications)
