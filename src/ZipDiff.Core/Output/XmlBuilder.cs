@@ -2,7 +2,7 @@
 
 namespace ZipDiff.Core.Output
 {
-	class XmlBuilder : AbstractBuilder
+	public class XmlBuilder : AbstractBuilder
 	{
 		public override void Build(StreamWriter writer, Differences diff)
 		{

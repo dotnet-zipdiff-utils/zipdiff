@@ -2,7 +2,7 @@
 
 namespace ZipDiff.Core.Output
 {
-	interface IBuilder
+	public interface IBuilder
 	{
 		void Build(string path, Differences diff);
 		void Build(StreamWriter writer, Differences diff);

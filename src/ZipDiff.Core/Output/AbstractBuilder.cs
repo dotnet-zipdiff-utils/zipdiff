@@ -2,7 +2,7 @@
 
 namespace ZipDiff.Core.Output
 {
-	abstract class AbstractBuilder : IBuilder
+	public abstract class AbstractBuilder : IBuilder
 	{
 		public void Build(string path, Differences diff)
 		{

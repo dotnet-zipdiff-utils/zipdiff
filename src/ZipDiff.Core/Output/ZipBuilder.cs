@@ -8,7 +8,7 @@ using ICSharpCode.SharpZipLib.Zip;
 
 namespace ZipDiff.Core.Output
 {
-	class ZipBuilder : AbstractBuilder
+	public class ZipBuilder : AbstractBuilder
 	{
 		public override void Build(StreamWriter writer, Differences diff)
 		{

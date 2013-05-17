@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ZipDiff.Core.Output
 {
-	class BuilderFactory
+	public class BuilderFactory
 	{
 		public static IBuilder Create(String filename)
 		{

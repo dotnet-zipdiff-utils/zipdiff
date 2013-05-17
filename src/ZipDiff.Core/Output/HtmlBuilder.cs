@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace ZipDiff.Core.Output
 {
-	class HtmlBuilder : AbstractBuilder
+	public class HtmlBuilder : AbstractBuilder
 	{
 		public override void Build(StreamWriter writer, Differences diff)
 		{
