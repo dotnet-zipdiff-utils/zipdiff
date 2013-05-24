@@ -30,7 +30,7 @@
 
       </header>
       <section>
-        <h3>ZipDiff</h3>
+        <h1>ZipDiff</h1>
 
 <p>Use the ZipDiff tool when you need to compare the contents of two zip files.</p>
 
@@ -38,32 +38,75 @@
 
 <p>This version of ZipDiff has been ported from Java to C# (.NET)</p>
 
-<h3>Command line arguments</h3>
+<h2>Download</h2>
+
+<p>To get a copy of Zipdiff you have the following options:</p>
+
+<ul>
+<li>Download the source and run the <code>build.cmd</code> (which runs an MSBuild against <code>build.proj</code>)</li>
+<li>Install using NuGet. Your options are:
+
+<ul>
+<li>
+<a href="https://nuget.org/packages/ZipDiff/">ZipDiff</a> - the command-line utility</li>
+<li>
+<a href="https://nuget.org/packages/ZipDiff.Core/">ZipDiff.Core</a> - the class-library (to use in your own applications)</li>
+</ul>
+</li>
+<li>or finally, you can download the executable directly from my DropBox share: <a href="https://dl.dropboxusercontent.com/u/3504568/Projects/OSS/ZipDiff/zipdiff.exe">zipdiff.exe</a>
+</li>
+</ul><h3>Prerequisites</h3>
+
+<p>To use ZipDiff you will need to have the <a href="http://www.microsoft.com/en-GB/download/details.aspx?id=17851">.NET Framework 4.0</a> installed.</p>
+
+<h2>Command line arguments</h2>
 
 <pre><code>zipdiff.exe --file1 foo.zip --file2 bar.zip [--options]
 </code></pre>
 
 <p>Valid options are:</p>
 
-<pre><code>--comparecrcvalues     Compares the crc values instead of the file content
---comparetimestamps    Compares timestamps instead of file content
---outputfile           Name of the output file
+<pre><code>--comparecrcvalues            Compares the crc values instead of the file content
+--comparetimestamps           Compares timestamps instead of file content
+--outputfile                  Name of the output file
 --exitwitherrorondifference   Use an error code other than 0, if differences have been detected
---regex                Regular expression to match files to exclude
---verbose              Print detail messages
+--regex                       Regular expression to match files to exclude
+--verbose                     Print detail messages
 </code></pre>
 
-<h3>References</h3>
+<h2>Output formats</h2>
+
+<p>When using the <code>--outputfile</code> option, the following formats are available:</p>
+
+<ul>
+<li>Plain-Text</li>
+<li>HTML</li>
+<li>XML</li>
+<li>Zip (containing the differences between <code>--file1</code> and <code>--file2</code>)</li>
+</ul><p>For example, to output a zip file:</p>
+
+<pre><code>zipdiff.exe --file1 foo.zip --file2 bar.zip --outputfile diff.zip
+</code></pre>
+
+<p>If the output file extension can not be determined, then the format will default to a plain-text file.</p>
+
+<h2>References</h2>
 
 <p>This version can be found at <a href="https://github.com/leekelleher/ZipDiff.NET">https://github.com/leekelleher/ZipDiff.NET</a></p>
 
-<p>The original zipdiff project was developed by Sean C. Sullivan and James Stewart at <a href="http://zipdiff.sourceforge.net/">http://zipdiff.sourceforge.net/</a><br>
-A recent fork can also be found on GitHub: <a href="https://github.com/nhnb/zipdiff">https://github.com/nhnb/zipdiff</a></p>
+<p>The original <a href="http://zipdiff.sourceforge.net/">zipdiff</a> project was developed by Sean C. Sullivan and James Stewart.</p>
 
-<h3>License</h3>
+<p>A fork (with enhancements) was recently made by <a href="https://github.com/nhnb">Hendrik Brummermann</a>. This can also be found on GitHub: <a href="https://github.com/nhnb/zipdiff">https://github.com/nhnb/zipdiff</a></p>
 
-<p>This project is licensed under <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a>.
-Please see LICENSE.md and NOTICE.txt for further details.</p>
+<h2>License</h2>
+
+<p>Copyright © 2004 Sean C. Sullivan and James Stewart<br>
+Copyright © 2009 Hendrik Brummermann<br>
+Copyright © 2013 Lee Kelleher<br></p>
+
+<p>This project is licensed under <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a>.</p>
+
+<p>Please see <a href="LICENSE.txt">LICENSE</a> and <a href="NOTICE.txt">NOTICE</a> for further details.</p>
       </section>
       <footer>
         <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
