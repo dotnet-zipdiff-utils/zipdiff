@@ -13,10 +13,10 @@
 
 	<!-- VERSION NUMBER -->
 	<PropertyGroup>
-		<VersionMajor>0</VersionMajor>
-		<VersionMinor>2</VersionMinor>
+		<VersionMajor>1</VersionMajor>
+		<VersionMinor>0</VersionMinor>
 		<VersionPatch>0</VersionPatch>
-		<VersionSuffix>-beta</VersionSuffix>
+		<VersionSuffix></VersionSuffix>
 	</PropertyGroup>
 
 	<!-- CLEAN -->
@@ -27,14 +27,13 @@
 
 	<!-- UPDATE ASSEMBLEY VERSION -->
 	<Target Name="UpdateAssemblyInfo" DependsOnTargets="Clean">
-		<Version Major="$(VersionMajor)" Minor="$(VersionMinor)" BuildType="Automatic" RevisionType="Automatic" StartDate="2013-05-03">
+		<Version Major="$(VersionMajor)" Minor="$(VersionMinor)" BuildType="Automatic" StartDate="2013-05-03">
 			<Output TaskParameter="Build" PropertyName="Build" />
-			<Output TaskParameter="Revision" PropertyName="Revision" />
 		</Version>
 		<AssemblyInfo CodeLanguage="CS"
 			OutputFile="$(RootDir)\src\VersionInfo.cs"
-			AssemblyVersion="$(VersionMajor).$(VersionMinor).$(VersionPatch)"
-			AssemblyFileVersion="$(VersionMajor).$(VersionMinor).$(Build).$(Revision)"
+			AssemblyVersion="$(VersionMajor).$(VersionMinor).0.0"
+			AssemblyFileVersion="$(VersionMajor).$(VersionMinor).$(VersionPatch).$(Build)"
 			AssemblyInformationalVersion="$(VersionMajor).$(VersionMinor).$(VersionPatch)$(VersionSuffix)"/>
 	</Target>
 
