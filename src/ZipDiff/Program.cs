@@ -39,6 +39,7 @@ namespace ZipDiff
 			{
 				CompareCrcValues = options.CompareCrcValues,
 				CompareTimestamps = options.CompareTimestamps,
+				IgnoreCase = options.IgnoreCase,
 				RegExPattern = options.RegExPattern
 			};
 			var diff = calc.GetDifferences();

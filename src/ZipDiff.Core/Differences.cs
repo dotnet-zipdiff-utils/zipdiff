@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using ICSharpCode.SharpZipLib.Zip;
@@ -21,16 +22,18 @@ namespace ZipDiff.Core
 
 		internal Dictionary<string, ZipEntry> Unchanged { get; set; }
 
-		public Differences(string file1, string file2)
+		public Differences(string file1, string file2, bool ignoreCase = false)
 		{
 			File1 = file1;
 			File2 = file2;
 
-			Added = new Dictionary<string, ZipEntry>();
-			Changed = new Dictionary<string, ZipEntry[]>();
-			Ignored = new Dictionary<string, ZipEntry>();
-			Removed = new Dictionary<string, ZipEntry>();
-			Unchanged = new Dictionary<string, ZipEntry>();
+			var comparer = ignoreCase ? StringComparer.OrdinalIgnoreCase : StringComparer.Ordinal;
+
+			Added = new Dictionary<string, ZipEntry>(comparer);
+			Changed = new Dictionary<string, ZipEntry[]>(comparer);
+			Ignored = new Dictionary<string, ZipEntry>(comparer);
+			Removed = new Dictionary<string, ZipEntry>(comparer);
+			Unchanged = new Dictionary<string, ZipEntry>(comparer);
 		}
 
 		public bool HasDifferences()
@@ -40,9 +43,9 @@ namespace ZipDiff.Core
 
 		public override string ToString()
 		{
-			var logg = new StringBuilder();
+			var log = new StringBuilder();
 
-			logg.Append(Added.Count)
+			log.Append(Added.Count)
 				.Append(Added.Count == 1 ? " file was" : " files were")
 				.Append(" added to ")
 				.Append(File2)
@@ -51,7 +54,7 @@ namespace ZipDiff.Core
 				.Append(string.Join("\r\n\t[added] ", Added.Keys))
 				.AppendLine();
 
-			logg.Append(Removed.Count)
+			log.Append(Removed.Count)
 				.Append(Removed.Count == 1 ? " file was" : " files were")
 				.Append(" removed from ")
 				.Append(File2)
@@ -60,20 +63,20 @@ namespace ZipDiff.Core
 				.Append(string.Join("\r\n\t[removed] ", Removed.Keys))
 				.AppendLine();
 
-			logg.Append(Changed.Count)
+			log.Append(Changed.Count)
 				.Append(Changed.Count == 1 ? " file changed" : " files changed")
 				.AppendLine();
 
 			foreach (var changed in Changed.Where(x => x.Value.Length > 1))
 			{
-				logg.AppendFormat("\t[changed] {0} (size {1} : {2})", changed.Key, changed.Value[0].Size, changed.Value[1].Size)
+				log.AppendFormat("\t[changed] {0} (size {1} : {2})", changed.Key, changed.Value[0].Size, changed.Value[1].Size)
 					.AppendLine();
 			}
 
 			var differenceCount = Added.Count + Changed.Count + Removed.Count;
-			logg.AppendFormat("Total differences: {0}", differenceCount);
+			log.AppendFormat("Total differences: {0}", differenceCount);
 
-			return logg.ToString();
+			return log.ToString();
 		}
 	}
 }

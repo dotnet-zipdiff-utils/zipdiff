@@ -92,6 +92,8 @@ namespace ZipDiff.Core.UnitTests
 				this.ExerciseOutputBuilders(diff);
 			}
 
+			// TODO: Write tests to compare zips with same entries, but case-sensitive names
+
 			private void CreateZipOneEntry(string filename, char c = 'a')
 			{
 				using (var writer = new StreamWriter(filename))
