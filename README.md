@@ -26,8 +26,9 @@ To use ZipDiff you will need to have the [.NET Framework 4.0](http://www.microso
 
 Valid options are:
 
-	--comparecrcvalues            Compares the crc values instead of the file content
+	--comparecrcvalues            Compares the CRC values instead of the file content
 	--comparetimestamps           Compares timestamps instead of file content
+	--ignorecase                  Performs case-insensitive string comparison on the file name
 	--outputfile                  Name of the output file
 	--exitwitherrorondifference   Use an error code other than 0, if differences have been detected
 	--regex                       Regular expression to match files to exclude
