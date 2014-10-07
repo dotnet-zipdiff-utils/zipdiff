@@ -20,6 +20,8 @@
 
 		public string RegExPattern { get; set; }
 
+		public bool Verbose { get; set; }
+
 		public DifferenceCalculator(string file1, string file2)
 			: this(new FileInfo(file1), new FileInfo(file2))
 		{
@@ -64,7 +66,7 @@
 
 		protected Differences CalculateDifferences(Dictionary<string, ZipEntry> map1, Dictionary<string, ZipEntry> map2)
 		{
-			var diff = new Differences(zip1.Name, zip2.Name, IgnoreCase);
+			var diff = new Differences(zip1.Name, zip2.Name, IgnoreCase, Verbose);
 
 			var allNames = new List<string>();
 			allNames.AddRange(map1.Keys);

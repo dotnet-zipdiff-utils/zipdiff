@@ -8,6 +8,8 @@
 
 	public class Differences
 	{
+		private bool Verbose { get; set; }
+
 		public string File1 { get; set; }
 
 		public string File2 { get; set; }
@@ -22,7 +24,7 @@
 
 		internal Dictionary<string, ZipEntry> Unchanged { get; set; }
 
-		public Differences(string file1, string file2, bool ignoreCase = false)
+		public Differences(string file1, string file2, bool ignoreCase = false, bool verbose = false)
 		{
 			File1 = file1;
 			File2 = file2;
@@ -34,6 +36,8 @@
 			Ignored = new Dictionary<string, ZipEntry>(comparer);
 			Removed = new Dictionary<string, ZipEntry>(comparer);
 			Unchanged = new Dictionary<string, ZipEntry>(comparer);
+
+			Verbose = verbose;
 		}
 
 		public bool HasDifferences()
@@ -43,6 +47,14 @@
 
 		public override string ToString()
 		{
+			return ToString(Verbose);
+		}
+
+		public string ToString(bool verbose)
+		{
+			if (!verbose)
+				return string.Format("[Added: {0}; Removed: {1}; Changed: {2}]", Added.Count, Removed.Count, Changed.Count);
+
 			var log = new StringBuilder();
 
 			log.Append(Added.Count)

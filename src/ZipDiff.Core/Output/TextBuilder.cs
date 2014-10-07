@@ -6,7 +6,7 @@
 	{
 		public override void Build(StreamWriter writer, Differences diff)
 		{
-			writer.Write(diff.ToString());
+			writer.Write(diff.ToString(true));
 			writer.Flush();
 		}
 	}
