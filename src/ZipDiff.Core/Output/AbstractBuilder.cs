@@ -1,7 +1,7 @@
-﻿using System.IO;
-
-namespace ZipDiff.Core.Output
+﻿namespace ZipDiff.Core.Output
 {
+	using System.IO;
+
 	public abstract class AbstractBuilder : IBuilder
 	{
 		public void Build(string path, Differences diff)

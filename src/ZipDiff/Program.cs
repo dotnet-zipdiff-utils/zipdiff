@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Security.AccessControl;
-using System.Security.Principal;
-using System.Text;
-using System.Threading.Tasks;
-using ZipDiff.Core;
-using ZipDiff.Core.Output;
-
-namespace ZipDiff
+﻿namespace ZipDiff
 {
+	using System;
+	using System.IO;
+	using ZipDiff.Core;
+	using ZipDiff.Core.Output;
+
 	class Program
 	{
 		const int EXITCODE_ERROR = 2;
@@ -39,8 +33,10 @@ namespace ZipDiff
 			{
 				CompareCrcValues = options.CompareCrcValues,
 				CompareTimestamps = options.CompareTimestamps,
+				IgnoreCase = options.IgnoreCase,
 				RegExPattern = options.RegExPattern
 			};
+
 			var diff = calc.GetDifferences();
 
 			if (!string.IsNullOrWhiteSpace(options.OutputFile))

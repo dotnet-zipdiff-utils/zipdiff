@@ -1,7 +1,7 @@
-﻿using System.IO;
-
-namespace ZipDiff.Core.Output
+﻿namespace ZipDiff.Core.Output
 {
+	using System.IO;
+
 	public class XmlBuilder : AbstractBuilder
 	{
 		public override void Build(StreamWriter writer, Differences diff)

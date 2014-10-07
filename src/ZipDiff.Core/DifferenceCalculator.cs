@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text.RegularExpressions;
-using ICSharpCode.SharpZipLib.Zip;
-
-namespace ZipDiff.Core
+﻿namespace ZipDiff.Core
 {
+	using System;
+	using System.Collections.Generic;
+	using System.IO;
+	using System.Linq;
+	using System.Text.RegularExpressions;
+	using ICSharpCode.SharpZipLib.Zip;
+
 	public class DifferenceCalculator
 	{
 		private ZipFile zip1;
@@ -16,7 +16,11 @@ namespace ZipDiff.Core
 
 		public bool CompareTimestamps { get; set; }
 
+		public bool IgnoreCase { get; set; }
+
 		public string RegExPattern { get; set; }
+
+		public bool Verbose { get; set; }
 
 		public DifferenceCalculator(string file1, string file2)
 			: this(new FileInfo(file1), new FileInfo(file2))
@@ -36,7 +40,8 @@ namespace ZipDiff.Core
 
 		protected Dictionary<string, ZipEntry> BuildZipEntryMap(ZipFile zip)
 		{
-			var map = new Dictionary<string, ZipEntry>();
+			var comparer = IgnoreCase ? StringComparer.OrdinalIgnoreCase : StringComparer.Ordinal;
+			var map = new Dictionary<string, ZipEntry>(comparer);
 
 			for (int i = 0; i < zip.Count; i++)
 			{
@@ -61,7 +66,7 @@ namespace ZipDiff.Core
 
 		protected Differences CalculateDifferences(Dictionary<string, ZipEntry> map1, Dictionary<string, ZipEntry> map2)
 		{
-			var diff = new Differences(zip1.Name, zip2.Name);
+			var diff = new Differences(zip1.Name, zip2.Name, IgnoreCase, Verbose);
 
 			var allNames = new List<string>();
 			allNames.AddRange(map1.Keys);
@@ -73,11 +78,11 @@ namespace ZipDiff.Core
 				{
 					continue;
 				}
-				else if (map1.ContainsKey(name) && (!map2.ContainsKey(name)))
+				else if (map1.ContainsKey(name) && (!map2.ContainsKey(name)) && !diff.Removed.ContainsKey(name))
 				{
 					diff.Removed.Add(name, map1[name]);
 				}
-				else if (map2.ContainsKey(name) && (!map1.ContainsKey(name)))
+				else if (map2.ContainsKey(name) && (!map1.ContainsKey(name)) && !diff.Added.ContainsKey(name))
 				{
 					diff.Added.Add(name, map2[name]);
 				}
@@ -97,9 +102,9 @@ namespace ZipDiff.Core
 					if (CompareCrcValues && (entry1.HasCrc && entry2.HasCrc))
 						match = match && entry1.Crc == entry2.Crc;
 
-					if (!match)
+					if (!match && !diff.Changed.ContainsKey(name))
 						diff.Changed.Add(name, new[] { entry1, entry2 });
-					else
+					else if (!diff.Unchanged.ContainsKey(name))
 						diff.Unchanged.Add(name, map2[name]);
 				}
 			}

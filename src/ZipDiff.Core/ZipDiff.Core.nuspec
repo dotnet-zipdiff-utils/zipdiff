@@ -8,7 +8,7 @@
 		<owners>$author$</owners>
 		<licenseUrl>https://github.com/leekelleher/ZipDiff.NET/blob/master/LICENSE.txt</licenseUrl>
 		<projectUrl>http://leekelleher.github.io/ZipDiff.NET/</projectUrl>
-		<iconUrl>http://leekelleher.github.io/ZipDiff.NET/images/icon.png</iconUrl>
+		<iconUrl>https://raw.githubusercontent.com/leekelleher/ZipDiff/raw/master/docs/ZipDiff.png</iconUrl>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
 		<summary>ZipDiff is a utility for comparing the contents of 2 different zip files.</summary>
 		<description>

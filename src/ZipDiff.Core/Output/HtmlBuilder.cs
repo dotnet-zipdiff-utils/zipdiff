@@ -1,9 +1,9 @@
-﻿using System;
-using System.IO;
-using System.Linq;
-
-namespace ZipDiff.Core.Output
+﻿namespace ZipDiff.Core.Output
 {
+	using System;
+	using System.IO;
+	using System.Linq;
+
 	public class HtmlBuilder : AbstractBuilder
 	{
 		public override void Build(StreamWriter writer, Differences diff)

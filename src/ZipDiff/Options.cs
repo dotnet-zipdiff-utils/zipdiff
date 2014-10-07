@@ -1,8 +1,7 @@
-﻿using System.Text;
-using CommandLine;
-
-namespace ZipDiff
+﻿namespace ZipDiff
 {
+	using CommandLine;
+
 	public class Options
 	{
 		[Option('c', "comparecrcvalues", Required = false, HelpText = "Compare CRC values")]
@@ -19,6 +18,9 @@ namespace ZipDiff
 
 		[Option('2', "file2", Required = true, HelpText = "<filename> second file to compare")]
 		public string File2 { get; set; }
+
+		[Option('i', "ignorecase", Required = false, HelpText = "Performs case-insensitive string comparison")]
+		public bool IgnoreCase { get; set; }
 
 		[Option('o', "outputfile", Required = false, HelpText = "Output filename")]
 		public string OutputFile { get; set; }
