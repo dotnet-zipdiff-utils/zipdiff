@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using ICSharpCode.SharpZipLib.Zip;
-
-namespace ZipDiff.Core
+﻿namespace ZipDiff.Core
 {
+	using System;
+	using System.Collections.Generic;
+	using System.Linq;
+	using System.Text;
+	using ICSharpCode.SharpZipLib.Zip;
+
 	public class Differences
 	{
 		public string File1 { get; set; }

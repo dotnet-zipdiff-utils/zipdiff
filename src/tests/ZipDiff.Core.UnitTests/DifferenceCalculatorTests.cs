@@ -1,13 +1,12 @@
-﻿using System;
-using System.IO;
-using System.Linq;
-using System.Text;
-using ICSharpCode.SharpZipLib.Zip;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ZipDiff.Core.Output;
-
-namespace ZipDiff.Core.UnitTests
+﻿namespace ZipDiff.Core.UnitTests
 {
+	using System.IO;
+	using System.Linq;
+	using System.Text;
+	using ICSharpCode.SharpZipLib.Zip;
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+	using ZipDiff.Core.Output;
+
 	[TestClass]
 	public class DifferenceCalculatorTests
 	{

@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ZipDiff.Core.Output
+﻿namespace ZipDiff.Core.Output
 {
+	using System;
+
 	public class BuilderFactory
 	{
-		public static IBuilder Create(String filename)
+		public static IBuilder Create(string filename)
 		{
 			if (filename.EndsWith(".html", StringComparison.OrdinalIgnoreCase))
 				return new HtmlBuilder();

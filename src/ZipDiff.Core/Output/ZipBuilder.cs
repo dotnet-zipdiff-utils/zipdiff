@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ICSharpCode.SharpZipLib.Zip;
-
-namespace ZipDiff.Core.Output
+﻿namespace ZipDiff.Core.Output
 {
+	using System.Collections.Generic;
+	using System.IO;
+	using System.Linq;
+	using ICSharpCode.SharpZipLib.Zip;
+
 	public class ZipBuilder : AbstractBuilder
 	{
 		public override void Build(StreamWriter writer, Differences diff)

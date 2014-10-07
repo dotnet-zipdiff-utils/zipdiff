@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text.RegularExpressions;
-using ICSharpCode.SharpZipLib.Zip;
-
-namespace ZipDiff.Core
+﻿namespace ZipDiff.Core
 {
+	using System;
+	using System.Collections.Generic;
+	using System.IO;
+	using System.Linq;
+	using System.Text.RegularExpressions;
+	using ICSharpCode.SharpZipLib.Zip;
+
 	public class DifferenceCalculator
 	{
 		private ZipFile zip1;

@@ -1,8 +1,7 @@
-﻿using System.Text;
-using CommandLine;
-
-namespace ZipDiff
+﻿namespace ZipDiff
 {
+	using CommandLine;
+
 	public class Options
 	{
 		[Option('c', "comparecrcvalues", Required = false, HelpText = "Compare CRC values")]
