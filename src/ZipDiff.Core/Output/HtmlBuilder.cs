@@ -21,7 +21,7 @@ tr, td { font-family: verdana,arial,helvetica; font-size: 80%; background:#eeeee
 			writer.WriteLine("</head>");
 
 			writer.WriteLine("<body>");
-			writer.WriteLine("<p>First file: {0}<br/>Second file: {1}</p>", diff.File1, diff.File2);
+			writer.WriteLine("<p>First file: {0}<br/>Second file: {1}</p>", Path.GetFileName(diff.File1), Path.GetFileName(diff.File2));
 
 			WriteDiffSet(writer, "Added", diff.Added.Keys.ToArray());
 			WriteDiffSet(writer, "Removed", diff.Removed.Keys.ToArray());

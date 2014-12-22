@@ -1,7 +1,9 @@
 ﻿namespace ZipDiff.Core.Output
 {
+	using System;
 	using System.IO;
 
+	[Obsolete("The legacy `XmlBuilder` has been superseded by `XmlBuilder2`.", false)]
 	public class XmlBuilder : AbstractBuilder
 	{
 		public override void Build(StreamWriter writer, Differences diff)

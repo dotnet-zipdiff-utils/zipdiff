@@ -103,9 +103,13 @@
 						match = match && entry1.Crc == entry2.Crc;
 
 					if (!match && !diff.Changed.ContainsKey(name))
+					{
 						diff.Changed.Add(name, new[] { entry1, entry2 });
+					}
 					else if (!diff.Unchanged.ContainsKey(name))
+					{
 						diff.Unchanged.Add(name, map2[name]);
+					}
 				}
 			}
 
