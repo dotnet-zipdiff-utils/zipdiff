@@ -13,7 +13,7 @@
 				return new TextBuilder();
 
 			if (filename.EndsWith(".xml", StringComparison.OrdinalIgnoreCase))
-				return new XmlBuilder();
+				return new XmlBuilder2();
 
 			if (filename.EndsWith(".zip", StringComparison.OrdinalIgnoreCase))
 				return new ZipBuilder();

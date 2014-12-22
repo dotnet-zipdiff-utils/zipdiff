@@ -52,6 +52,7 @@
     <Compile Include="Differences.cs" />
     <Compile Include="Output\AbstractBuilder.cs" />
     <Compile Include="Output\BuilderFactory.cs" />
+    <Compile Include="Output\XmlBuilder2.cs" />
     <Compile Include="Output\HtmlBuilder.cs" />
     <Compile Include="Output\IBuilder.cs" />
     <Compile Include="Output\TextBuilder.cs" />
