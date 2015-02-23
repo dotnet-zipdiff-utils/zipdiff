@@ -138,6 +138,7 @@
 				Assert.IsNotNull(diff);
 
 				this.ExerciseHtmlBuilder(diff);
+				this.ExerciseJsonBuilder(diff);
 				this.ExerciseXmlBuilder(diff);
 				this.ExerciseXmlBuilder2(diff);
 				this.ExerciseTextBuilder(diff);
@@ -151,6 +152,20 @@
 				using (var writer = new StreamWriter(stream))
 				{
 					var builder = new HtmlBuilder();
+					builder.Build(writer, diff);
+
+					Assert.IsTrue(writer.BaseStream.Length > 0);
+				}
+			}
+
+			private void ExerciseJsonBuilder(Differences diff)
+			{
+				Assert.IsNotNull(diff);
+
+				using (var stream = new MemoryStream())
+				using (var writer = new StreamWriter(stream))
+				{
+					var builder = new JsonBuilder();
 					builder.Build(writer, diff);
 
 					Assert.IsTrue(writer.BaseStream.Length > 0);
