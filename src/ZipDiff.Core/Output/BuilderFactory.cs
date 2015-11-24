@@ -9,6 +9,9 @@
 			if (filename.EndsWith(".html", StringComparison.OrdinalIgnoreCase))
 				return new HtmlBuilder();
 
+			if (filename.EndsWith(".json", StringComparison.OrdinalIgnoreCase))
+				return new JsonBuilder();
+
 			if (filename.EndsWith(".txt", StringComparison.OrdinalIgnoreCase))
 				return new TextBuilder();
 
