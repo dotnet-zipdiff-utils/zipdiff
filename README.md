@@ -15,7 +15,6 @@ To get a copy of ZipDiff you have the following options:
 * Install using NuGet. Your options are:
   * [ZipDiff](https://nuget.org/packages/ZipDiff/) - the command-line utility
   * [ZipDiff.Core](https://nuget.org/packages/ZipDiff.Core/) - the class-library (to use in your own applications)
-* or finally, you can download the executable directly from my DropBox share: [zipdiff.exe](https://dl.dropboxusercontent.com/u/3504568/Projects/OSS/ZipDiff/zipdiff.exe)
 
 
 ### Prerequisites
