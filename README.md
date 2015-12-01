@@ -2,7 +2,7 @@
 
 Use the ZipDiff tool when you need to compare the contents of two zip files.
 
-Run it as a standalone executable. The tool supports four output formats: plain text, XML, HTML and ZIP (containing differences).
+Run it as a standalone executable. The tool supports four output formats: plain text, HTML, JSON, XML and ZIP (containing differences).
 
 This version of ZipDiff has been ported from Java to C# (.NET)
 
@@ -43,6 +43,7 @@ When using the `--outputfile` option, the following formats are available:
 
 * Plain-Text
 * HTML
+* JSON
 * XML
 * Zip (containing the differences between `--file1` and `--file2`)
 
