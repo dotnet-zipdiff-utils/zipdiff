@@ -58,7 +58,7 @@ If the output file extension can not be determined, then the format will default
 
 ## References
 
-This version can be found at https://github.com/leekelleher/ZipDiff
+This version can be found at <https://github.com/dotnet-zipdiff-utils/zipdiff>
 
 The original [zipdiff](http://zipdiff.sourceforge.net/) project was developed by Sean C. Sullivan and James Stewart.
 
@@ -73,7 +73,7 @@ Copyright &copy; 2013 Lee Kelleher<br/>
 
 This project is licensed under [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
 
-Please see [LICENSE](LICENSE.txt) and [NOTICE](NOTICE.txt) for further details.
+Please see [LICENSE](LICENSE.md) for further details.
 
 ### Logo Credit
 
