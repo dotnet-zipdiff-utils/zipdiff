@@ -6,15 +6,15 @@
 		<title>$id$</title>
 		<authors>$author$</authors>
 		<owners>$author$</owners>
-		<licenseUrl>https://github.com/leekelleher/ZipDiff.NET/blob/master/LICENSE.txt</licenseUrl>
-		<projectUrl>http://leekelleher.github.io/ZipDiff.NET/</projectUrl>
-		<iconUrl>https://raw.githubusercontent.com/leekelleher/ZipDiff/master/docs/ZipDiff.png</iconUrl>
+		<licenseUrl>https://github.com/dotnet-zipdiff-utils/zipdiff/blob/master/LICENSE.md</licenseUrl>
+		<projectUrl>https://github.com/dotnet-zipdiff-utils/zipdiff</projectUrl>
+		<iconUrl>https://raw.githubusercontent.com/dotnet-zipdiff-utils/zipdiff/master/docs/dotnet-zipdiff.png</iconUrl>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
-		<summary>ZipDiff is a utility for comparing the contents of 2 different zip files.</summary>
+		<summary>ZipDiff is a utility for comparing the contents of 2 zip files.</summary>
 		<description>
-			<![CDATA[ZipDiff is a class-library utility for comparing the contents of 2 different zip files.]]>
+			<![CDATA[ZipDiff is a class-library utility for comparing the contents of 2 zip files.]]>
 		</description>
-		<copyright>Copyright &#169; 2013 Lee Kelleher</copyright>
+		<copyright>Copyright &#169; 2016 Lee Kelleher</copyright>
 		<tags>zipdiff zip diff utility</tags>
 		<dependencies />
 	</metadata>

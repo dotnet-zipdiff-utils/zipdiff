@@ -1,12 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C0A8BDDE-A89F-4341-8912-A7C05E5CC25F}"
 	ProjectSection(SolutionItems) = preProject
-		..\LICENSE.txt = ..\LICENSE.txt
-		..\NOTICE.txt = ..\NOTICE.txt
+		..\CONTRIBUTING.md = ..\CONTRIBUTING.md
+		..\LICENSE.md = ..\LICENSE.md
 		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
@@ -27,6 +27,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZipDiff.Core.UnitTests", "t
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{4C7E95BA-4A65-4A5B-97CD-9D7578DE507B}"
 	ProjectSection(SolutionItems) = preProject
+		..\build.cmd = ..\build.cmd
 		..\build.proj = ..\build.proj
 		ZipDiff.Core\ZipDiff.Core.nuspec = ZipDiff.Core\ZipDiff.Core.nuspec
 		ZipDiff\ZipDiff.nuspec = ZipDiff\ZipDiff.nuspec
