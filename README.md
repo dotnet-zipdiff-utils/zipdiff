@@ -1,5 +1,7 @@
 # ZipDiff
 
+<img align="right" src="docs/dotnet-zipdiff.png">
+
 [![NuGet release](https://img.shields.io/nuget/v/ZipDiff.Core.svg)](https://www.nuget.org/packages/ZipDiff.Core)
 
 Use the ZipDiff tool when you need to compare the contents of two zip files.
@@ -74,7 +76,3 @@ Copyright &copy; 2013 Lee Kelleher<br/>
 This project is licensed under [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
 
 Please see [LICENSE](LICENSE.md) for further details.
-
-### Logo Credit
-
-[Zipper](https://thenounproject.com/term/zipper/44144/) by [Jose Luis Carmona](https://thenounproject.com/jose.l.carmona.37/) from the [Noun Project](https://thenounproject.com/).
