@@ -16,6 +16,7 @@
 			const string ZipOneEntryA1 = "zip-one-entry-a1.zip";
 			const string ZipOneEntryA1_Changed = "zip-one-entry-a1-changed.zip";
 			const string ZipOneEntryA2 = "zip-one-entry-a2.zip";
+			const string ZipOneEntryA3 = "zip-one-entry-a3.zip";
 			const string ZipOneEntryB1 = "zip-one-entry-b1.zip";
 
 			[TestInitialize]
@@ -23,6 +24,7 @@
 			{
 				this.CreateZipOneEntry(ZipOneEntryA1);
 				this.CreateZipOneEntry(ZipOneEntryA2);
+				this.CreateZipOneEntry(ZipOneEntryA3, 'A');
 				this.CreateZipOneEntryContentsChanged(ZipOneEntryA1_Changed, 'a', 'b');
 				this.CreateZipOneEntry(ZipOneEntryB1, 'b');
 			}
@@ -30,7 +32,7 @@
 			[TestCleanup]
 			public void Cleanup()
 			{
-				var zips = new[] { ZipOneEntryA1, ZipOneEntryA1_Changed, ZipOneEntryA2, ZipOneEntryB1 };
+				var zips = new[] { ZipOneEntryA1, ZipOneEntryA1_Changed, ZipOneEntryA2, ZipOneEntryA3, ZipOneEntryB1 };
 				foreach (var zip in zips.Where(File.Exists))
 					File.Delete(zip);
 			}
@@ -70,8 +72,8 @@
 				var diff = calc.GetDifferences();
 
 				Assert.IsTrue(diff.HasDifferences());
-				Assert.IsTrue(diff.Added.ContainsKey("B"));
-				Assert.IsTrue(diff.Removed.ContainsKey("A"));
+				Assert.IsTrue(diff.Added.ContainsKey("b"));
+				Assert.IsTrue(diff.Removed.ContainsKey("a"));
 				Assert.IsTrue(diff.Changed.Count == 0);
 
 				this.ExerciseOutputBuilders(diff);
@@ -86,12 +88,24 @@
 				Assert.IsTrue(diff.HasDifferences());
 				Assert.IsTrue(diff.Added.Count == 0);
 				Assert.IsTrue(diff.Removed.Count == 0);
-				Assert.IsTrue(diff.Changed.ContainsKey("A"));
+				Assert.IsTrue(diff.Changed.ContainsKey("a"));
 
 				this.ExerciseOutputBuilders(diff);
 			}
 
-			// TODO: Write tests to compare zips with same entries, but case-sensitive names
+			[TestMethod]
+			public void CalculateDifferences_ZipsDifferentEntriesSameContent()
+			{
+				var calc = new DifferenceCalculator(ZipOneEntryA1, ZipOneEntryA3) { IgnoreCase = true };
+				var diff = calc.GetDifferences();
+
+				Assert.IsTrue(diff.HasDifferences());
+				Assert.IsTrue(diff.Added.Count == 0);
+				Assert.IsTrue(diff.Removed.Count == 0);
+				Assert.IsTrue(diff.Changed.ContainsKey("a"));
+
+				this.ExerciseOutputBuilders(diff);
+			}
 
 			private void CreateZipOneEntry(string filename, char c = 'a')
 			{
@@ -99,10 +113,10 @@
 				{
 					var testZipOS = new ZipOutputStream(writer.BaseStream);
 
-					var entry1 = new ZipEntry(char.ToUpper(c).ToString());
+					var entry1 = new ZipEntry(c.ToString());
 					testZipOS.PutNextEntry(entry1);
 
-					var data = new string(c, 1024);
+					var data = new string(char.ToLower(c), 1024);
 					var bytes = UTF8Encoding.UTF8.GetBytes(data);
 					foreach (var bit in bytes)
 						testZipOS.WriteByte(bit);
@@ -118,10 +132,10 @@
 				{
 					var testZipOS = new ZipOutputStream(writer.BaseStream);
 
-					var entry1 = new ZipEntry(char.ToUpper(c).ToString());
+					var entry1 = new ZipEntry(c.ToString());
 					testZipOS.PutNextEntry(entry1);
 
-					var data = new string(c, 1024);
+					var data = new string(char.ToLower(c), 1024);
 					data = string.Concat(data.Remove(data.Length - 1, 1), changed);
 
 					var bytes = UTF8Encoding.UTF8.GetBytes(data);
