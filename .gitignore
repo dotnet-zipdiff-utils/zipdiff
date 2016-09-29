@@ -9,6 +9,7 @@ _ReSharper.*
 Thumbs.db
 .DS_Store
 
+*.nupkg
 *.zip
 
 src/packages/*/*
