@@ -156,6 +156,7 @@
 				this.ExerciseXmlBuilder(diff);
 				this.ExerciseXmlBuilder2(diff);
 				this.ExerciseTextBuilder(diff);
+				this.ExerciseZipBuilder(diff);
 			}
 
 			private void ExerciseHtmlBuilder(Differences diff)
@@ -222,6 +223,20 @@
 				using (var writer = new StreamWriter(stream))
 				{
 					var builder = new TextBuilder();
+					builder.Build(writer, diff);
+
+					Assert.IsTrue(writer.BaseStream.Length > 0);
+				}
+			}
+
+			private void ExerciseZipBuilder(Differences diff)
+			{
+				Assert.IsNotNull(diff);
+
+				using (var stream = new MemoryStream())
+				using (var writer = new StreamWriter(stream))
+				{
+					var builder = new ZipBuilder();
 					builder.Build(writer, diff);
 
 					Assert.IsTrue(writer.BaseStream.Length > 0);
