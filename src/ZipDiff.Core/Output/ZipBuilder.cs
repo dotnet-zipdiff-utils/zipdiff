@@ -3,10 +3,22 @@
 	using System.Collections.Generic;
 	using System.IO;
 	using System.Linq;
+	using System.Text;
 	using ICSharpCode.SharpZipLib.Zip;
 
 	public class ZipBuilder : AbstractBuilder
 	{
+		private bool _includeRemovedFile;
+
+		public ZipBuilder() : this(false)
+		{
+		}
+
+		public ZipBuilder(bool includeRemovedFile)
+		{
+			_includeRemovedFile = includeRemovedFile;
+		}
+
 		public override void Build(StreamWriter writer, Differences diff)
 		{
 			var entries = new List<ZipEntry>();
@@ -42,6 +54,15 @@
 			}
 
 			zipFile.Close();
+
+			if (_includeRemovedFile && diff.Removed.Count > 0)
+			{
+				var removedItems = Encoding.UTF8.GetBytes(string.Join("\r\n", diff.Removed.Keys));
+
+				zipOut.PutNextEntry(new ZipEntry("___removed.txt"));
+				zipOut.Write(removedItems, 0, removedItems.Length);
+				zipOut.CloseEntry();
+			}
 
 			zipOut.Finish();
 			zipOut.Flush();
