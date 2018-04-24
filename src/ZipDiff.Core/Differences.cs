@@ -2,6 +2,7 @@
 {
 	using System;
 	using System.Collections.Generic;
+	using System.IO;
 	using System.Linq;
 	using System.Text;
 	using ICSharpCode.SharpZipLib.Zip;
@@ -52,28 +53,42 @@
 
 		public string ToString(bool verbose)
 		{
-			if (!verbose)
+			if (verbose == false)
 				return string.Format("[Added: {0}; Removed: {1}; Changed: {2}]", Added.Count, Removed.Count, Changed.Count);
 
 			var log = new StringBuilder();
 
+			log.Append("File 1:\t")
+				.Append(Path.GetFileName(File1))
+				.Append("File 2:\t")
+				.Append(Path.GetFileName(File2))
+				.AppendLine();
+
 			log.Append(Added.Count)
 				.Append(Added.Count == 1 ? " file was" : " files were")
 				.Append(" added to ")
-				.Append(File2)
-				.AppendLine()
-				.Append("\t[added] ")
-				.Append(string.Join("\r\n\t[added] ", Added.Keys))
+				.Append(Path.GetFileName(File2))
 				.AppendLine();
+
+			if (Added.Keys.Count > 0)
+			{
+				log.Append("\t[added] ")
+					.Append(string.Join("\r\n\t[added] ", Added.Keys))
+					.AppendLine();
+			}
 
 			log.Append(Removed.Count)
 				.Append(Removed.Count == 1 ? " file was" : " files were")
 				.Append(" removed from ")
-				.Append(File2)
-				.AppendLine()
-				.Append("\t[removed] ")
-				.Append(string.Join("\r\n\t[removed] ", Removed.Keys))
+				.Append(Path.GetFileName(File2))
 				.AppendLine();
+
+			if (Removed.Keys.Count > 0)
+			{
+				log.Append("\t[removed] ")
+					.Append(string.Join("\r\n\t[removed] ", Removed.Keys))
+					.AppendLine();
+			}
 
 			log.Append(Changed.Count)
 				.Append(Changed.Count == 1 ? " file changed" : " files changed")
